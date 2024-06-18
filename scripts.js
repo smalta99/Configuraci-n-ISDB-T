@@ -10,7 +10,7 @@ document.getElementById('config-form').addEventListener('submit', function(event
             codeRate: document.getElementById(`codeRate${i}`).value
         });
     }
-    
+
     const config = {
         guardInterval: guardInterval,
         layers: layers
@@ -43,7 +43,10 @@ function displayConfig(config) {
     config.layers.forEach((layer, index) => {
         const dataRate = calculateDataRate(layer.segments, layer.modulation, config.guardInterval, layer.codeRate);
         resultDiv.innerHTML += `
-            <h3>Capa ${index+i}</h3>
+            <h3>Capa ${index + 1}</h3>
+            <p>Número de Segmentos: ${layer.segments}</p>
+            <p>Modulación: ${layer.modulation}</p>
+            <p>Tasa de Código: ${layer.codeRate}</p>
             <p>Tasa de Datos: ${dataRate.toFixed(2)} Mbps</p>
         `;
     });
