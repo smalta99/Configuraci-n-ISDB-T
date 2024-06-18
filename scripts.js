@@ -75,7 +75,7 @@ function calculateDataRate(segments, modulation, guardInterval, codeRate) {
         '7/8': 0.875
     };
     const rsCodeRate = 188 / 204;
-    const alpha = 0.2;
+    const alpha = 0.02;
     // Formula: (8 * log2(M) * tiempoGuarda * tasaCodigoRS) / (21 * (1 + alpha))
     const log2M = modulationEfficiency[modulation];
     const tiempoGuarda = guardIntervalRatio[guardInterval];
