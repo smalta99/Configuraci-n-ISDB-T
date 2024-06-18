@@ -43,7 +43,7 @@ function displayConfig(config) {
     config.layers.forEach((layer, index) => {
         const dataRate = calculateDataRate(layer.segments, layer.modulation, config.guardInterval, layer.codeRate);
         resultDiv.innerHTML += `
-            <h3>Capa ${layer}</h3>
+            <h3>Capa ${layers}</h3>
             <p>Tasa de Datos: ${dataRate.toFixed(2)} Mbps</p>
         `;
     });
