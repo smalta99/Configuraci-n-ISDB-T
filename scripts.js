@@ -61,10 +61,10 @@ function calculateDataRate(segments, modulation, guardInterval, codeRate) {
     };
 
     const guardIntervalRatio = {
-        '1/4': 0.75,
-        '1/8': 0.875,
-        '1/16': 0.9375,
-        '1/32': 0.96875
+        '1/4': 0.25,
+        '1/8': 0.125,
+        '1/16': 0.0625,
+        '1/32': 0.03125
     };
 
     const codeRateRatio = {
@@ -75,13 +75,12 @@ function calculateDataRate(segments, modulation, guardInterval, codeRate) {
         '7/8': 0.875
     };
     const rsCodeRate = 188 / 204;
-    const alpha = 1.05;
-    // Formula: (8 * log2(M) * tiempoGuarda * tasaCodigoRS) / (21 * (1 + alpha))
+    const tasaCodigoconv =codeRateRatio[codeRate] ;
     const log2M = modulationEfficiency[modulation];
     const tiempoGuarda = guardIntervalRatio[guardInterval];
     const tasaCodigoRS = rsCodeRate;
-    const numerator = 8 * log2M * tiempoGuarda * tasaCodigoRS *segments;
-    const denominator = 21 * (1 + alpha);
+    const numerator = 8 * log2M * tasaCodigoconv * tasaCodigoRS *segments;
+    const denominator = 21 * (1 + tiempoGuarda);
 
     return numerator / denominator;
 }
