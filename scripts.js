@@ -53,7 +53,7 @@ function displayConfig(config) {
 }
 
 function calculateDataRate(segments, modulation, guardInterval, codeRate) {
-    const segmentBandwidth = 0.42857; // MHz per segment
+    //const segmentBandwidth = 0.42857; // MHz per segment
     const modulationEfficiency = {
         'qpsk': 2, // 2 bit per symbol
         '16qam': 4, // 4 bits per symbol
@@ -80,7 +80,7 @@ function calculateDataRate(segments, modulation, guardInterval, codeRate) {
     const log2M = modulationEfficiency[modulation];
     const tiempoGuarda = guardIntervalRatio[guardInterval];
     const tasaCodigoRS = rsCodeRate;
-    const numerator = 8 * log2M * tiempoGuarda * tasaCodigoRS;
+    const numerator = 8 * log2M * tiempoGuarda * tasaCodigoRS *segments;
     const denominator = 21 * (1 + alpha);
 
     return numerator / denominator;
