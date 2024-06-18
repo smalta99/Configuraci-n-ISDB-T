@@ -10,24 +10,11 @@ document.getElementById('config-form').addEventListener('submit', function(event
             codeRate: document.getElementById(`codeRate${i}`).value
         });
     }
-     / Validar y ajustar la suma de segmentos para que sea 13
-    let totalSegments = layers.reduce((total, layer) => total + layer.segments, 0);
-    if (totalSegments !== 13) {
-        // Calcular el exceso o déficit
-        let deficit = 13 - totalSegments;
-        // Ajustar capa C si es necesario
-        if (deficit > 0 && layers[2].segments === 0) {
-            layers[2].segments = deficit;
-        } else if (deficit < 0) {
-            layers[2].segments = 0;
-        }
-
-        // Mostrar mensaje de advertencia si se ajustaron los valores
-        showMessage('La suma total de segmentos debe ser 13. Se han ajustado automáticamente los valores.');
-    } else {
-        hideMessage();
+    const sum=segments1+segmens2+segments3;
+    if (sum > 13){
+        alert('el numero de segmentos no puede exceder el valor de 13')
     }
-
+    
     const config = {
         guardInterval: guardInterval,
         layers: layers
