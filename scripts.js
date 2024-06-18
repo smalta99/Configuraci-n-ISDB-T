@@ -44,9 +44,9 @@ function displayConfig(config) {
         const dataRate = calculateDataRate(layer.segments, layer.modulation, config.guardInterval, layer.codeRate);
         resultDiv.innerHTML += `
             <h3>Capa ${index + 1}</h3>
-            <p>Número de Segmentos: ${layer.segments}</p>
-            <p>Modulación: ${layer.modulation}</p>
-            <p>Tasa de Código: ${layer.codeRate}</p>
+            //<p>Número de Segmentos: ${layer.segments}</p>
+            //<p>Modulación: ${layer.modulation}</p>
+            //<p>Tasa de Código: ${layer.codeRate}</p>
             <p>Tasa de Datos: ${dataRate.toFixed(2)} Mbps</p>
         `;
     });
@@ -84,5 +84,14 @@ function calculateDataRate(segments, modulation, guardInterval, codeRate) {
 
     return numerator / denominator;
 }
+function calculateTotalDataRate(layers, guardInterval) {
+    let totalDataRate = 0;
+    layers.forEach(layer => {
+        const dataRate = calculateDataRate(layer.modulation, guardInterval, layer.codeRate);
+        totalDataRate += dataRate;
+    });
+    return totalDataRate;
+}
+
 
 
