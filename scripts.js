@@ -2,7 +2,7 @@ document.getElementById('config-form').addEventListener('submit', function(event
     event.preventDefault();
 
     const guardInterval = document.getElementById('guardInterval').value;
-    const layers = [];
+    const layers = [A , B , C];
     for (let i = 1; i <= 3; i++) {
         layers.push({
             segments: document.getElementById(`segments${i}`).value,
