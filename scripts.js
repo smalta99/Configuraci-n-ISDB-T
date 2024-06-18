@@ -10,6 +10,13 @@ document.getElementById('config-form').addEventListener('submit', function(event
             codeRate: document.getElementById(`codeRate${i}`).value
         });
     }
+    // Validar y ajustar la suma de segmentos para que sea 13
+    let totalSegments = layers.reduce((total, layer) => total + layer.segments, 0);
+    if (totalSegments !== 13) {
+        // Si la suma no es 13, ajustamos los segmentos de la capa C para cumplir la restricción
+        layers[2].segments = 13 - (layers[0].segments + layers[1].segments);
+        document.getElementById('segmentsC').value = layers[2].segments;
+    }
 
     const config = {
         guardInterval: guardInterval,
