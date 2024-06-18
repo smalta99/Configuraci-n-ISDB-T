@@ -51,7 +51,7 @@ function displayConfig(config) {
         resultDiv.innerHTML += `
         <div id="total-data-rate">
             <h3>Tasa Total de Datos</h3>
-            <p>${totalDataRate.toFixed(5)} Mbps</p>
+            <p>${totalDataRate} Mbps</p>
         </div>
         `; 
 }
