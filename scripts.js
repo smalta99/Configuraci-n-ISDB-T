@@ -10,10 +10,6 @@ document.getElementById('config-form').addEventListener('submit', function(event
             codeRate: document.getElementById(`codeRate${i}`).value
         });
     }
-    const sum=segments1+segmens2+segments3;
-    if (sum > 13){
-        alert('el numero de segmentos no puede exceder el valor de 13')
-    }
     
     const config = {
         guardInterval: guardInterval,
