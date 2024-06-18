@@ -15,7 +15,7 @@ document.getElementById('config-form').addEventListener('submit', function(event
     if (totalSegments !== 13) {
         // Si la suma no es 13, ajustamos los segmentos de la capa C para cumplir la restricción
         layers[2].segments = 13 - (layers[0].segments + layers[1].segments);
-        document.getElementById('segmentsC').value = layers[2].segments;
+        document.getElementById('segments3').value = layers[2].segments;
         
         // Mostrar mensaje de advertencia
         showMessage('La suma total de segmentos debe ser 13. Se han ajustado automáticamente los valores.');
