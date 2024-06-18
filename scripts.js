@@ -55,7 +55,7 @@ function displayConfig(config) {
 function calculateDataRate(segments, modulation, guardInterval, codeRate) {
     const segmentBandwidth = 0.42857; // MHz per segment
     const modulationEfficiency = {
-        'qpsk': 1, // 1 bit per symbol
+        'qpsk': 2, // 2 bit per symbol
         '16qam': 4, // 4 bits per symbol
         '64qam': 6 // 6 bits per symbol
     };
@@ -74,12 +74,16 @@ function calculateDataRate(segments, modulation, guardInterval, codeRate) {
         '5/6': 0.8333,
         '7/8': 0.875
     };
+    const rsCodeRate = 188 / 204;
+    const alpha = 0.2;
+    // Formula: (8 * log2(M) * tiempoGuarda * tasaCodigoRS) / (21 * (1 + alpha))
+    const log2M = modulationEfficiency[modulation];
+    const tiempoGuarda = guardIntervalRatio[guardInterval];
+    const tasaCodigoRS = rsCodeRate;
+    const numerator = 8 * log2M * tiempoGuarda * tasaCodigoRS;
+    const denominator = 21 * (1 + alpha);
 
-    // Formula: segments * segmentBandwidth * modulationEfficiency * (symbol rate per MHz) * (1 - guard interval ratio) * codeRateRatio
-    // Assuming a symbol rate of 1.45 MSymbols/second per MHz for ISDB-T
-    const symbolRatePerMHz = 1.45;
-    const effectiveBandwidth = segments * segmentBandwidth * modulationEfficiency[modulation] * symbolRatePerMHz;
-    return effectiveBandwidth * guardIntervalRatio[guardInterval] * codeRateRatio[codeRate];
+    return numerator / denominator;
 }
 
 
