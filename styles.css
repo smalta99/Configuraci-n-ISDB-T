@@ -1,12 +1,12 @@
 body {
-    font-family: Courier, sans-serif;
+    font-family: "Courier New", Courier, monospace;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f4f4f4;
+    background-color:#F5F7FA;
 }
 
 .container {
