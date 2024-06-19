@@ -16,7 +16,8 @@ document.getElementById('config-form').addEventListener('submit', function(event
         alert('La suma total de segmentos no puede superar 13. Por favor, ajuste los valores.');
         return;
     } else {
-        hideMessage();
+    displayConfig(config);
+    alert('Configuración guardada con éxito!');
     }
     const config = {
         guardInterval: guardInterval,
