@@ -45,7 +45,9 @@ function displayConfig(config) {
             <h3>Capa ${index + 1}</h3>
             <p>Tasa de Datos: ${dataRate.toFixed(2)} Mbps</p>
         `;
+        totalDataRate += dataRate;
     });
+     resultDiv.innerHTML += `<h3>Total de Tasa de Datos: ${totalDataRate.toFixed(2)} Mbps</h3>`;
 }
 
 function calculateDataRate(segments, modulation, guardInterval, codeRate) {
