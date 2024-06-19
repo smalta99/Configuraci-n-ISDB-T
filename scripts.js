@@ -10,12 +10,6 @@ document.getElementById('config-form').addEventListener('submit', function(event
             codeRate: document.getElementById(`codeRate${i}`).value
         });
     }
-    const totalSegments = layers.reduce((total, layer) => total + layer.segments, 0);
-
-    if (totalSegments > 13) {
-        alert('La suma total de segmentos no puede superar 13. Por favor, ajuste los valores.');
-        return;
-    }
     const config = {
         guardInterval: guardInterval,
         layers: layers
@@ -50,9 +44,10 @@ function displayConfig(config) {
         resultDiv.innerHTML += `
             <h3>Capa ${index + 1}</h3>
             <p>Tasa de Datos: ${dataRate.toFixed(2)} Mbps</p>
-          
         `;
+         totalDataRate += dataRate;
     });
+     resultDiv.innerHTML += `<h3>Total de Tasa de Datos: ${totalDataRate.toFixed(2)} Mbps</h3>`;
 }
 
 function calculateDataRate(segments, modulation, guardInterval, codeRate) {
