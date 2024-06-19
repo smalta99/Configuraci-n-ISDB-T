@@ -13,7 +13,7 @@ document.getElementById('config-form').addEventListener('submit', function(event
     let totalSegments = layers.reduce((total, layer) => total + layer.segments, 0);
 
     if (totalSegments > 13) {
-        showMessage('La suma total de segmentos no puede superar 13. Por favor, ajuste los valores.');
+        alert('La suma total de segmentos no puede superar 13. Por favor, ajuste los valores.');
         return;
     } else {
         hideMessage();
