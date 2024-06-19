@@ -10,7 +10,14 @@ document.getElementById('config-form').addEventListener('submit', function(event
             codeRate: document.getElementById(`codeRate${i}`).value
         });
     }
+    let totalSegments = layers.reduce((total, layer) => total + layer.segments, 0);
 
+    if (totalSegments > 13) {
+        showMessage('La suma total de segmentos no puede superar 13. Por favor, ajuste los valores.');
+        return;
+    } else {
+        hideMessage();
+    }
     const config = {
         guardInterval: guardInterval,
         layers: layers
