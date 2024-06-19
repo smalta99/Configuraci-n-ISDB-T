@@ -45,7 +45,7 @@ function displayConfig(config) {
         resultDiv.innerHTML += `
             <h3>Capa ${index + 1}</h3>
             <p>Tasa de Datos: ${dataRate.toFixed(2)} Mbps</p>
-            <p>Total Tasa de Datos: ${totaldataRate.toFixed(2)} Mbps</p>
+            <p>Total Tasa de Datos: ${totalDataRate.toFixed(2)} Mbps</p>
         `;
     });
 }
