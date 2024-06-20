@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Configuración ISDB-T</h1>
+        <h1>Configuración de Parámetros ISDB-T</h1>
+        <div id="message"></div>
         <form id="config-form">
             <div class="general-settings">
                 <h2>Configuración General</h2>
@@ -33,7 +34,7 @@
                 </select>
 
                 <label for="codeRate1">Tasa de Código:</label>
-                <select id="codeRate1" name="codeRateA" required>
+                <select id="codeRate1" name="codeRate1" required>
                     <option value="1/2">1/2</option>
                     <option value="2/3">2/3</option>
                     <option value="3/4">3/4</option>
@@ -88,14 +89,9 @@
 
         <div id="result">
             <h2>Resultado de la Configuración</h2>
-            <p id="dataRateA"></p>
-            <p id="dataRateB"></p>
-            <p id="dataRateC"></p>
-            <p id="totalDataRate"></p>
         </div>
     </div>
 
     <script src="scripts.js"></script>
 </body>
 </html>
-
